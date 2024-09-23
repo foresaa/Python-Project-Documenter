@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/index.js"></script><script>((r) => {
+            setTimeout(r);
+          })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"Directory: <code>C:/MJ6_SREF/app/api/v1</code>","children":[{"content":"File: <code>endpoints.py</code>","children":[{"content":"Imports:","children":[{"content":"<font color=\"red\">from app.services.image_service import save_file</font>","children":[],"payload":{"lines":"5,6"}},{"content":"from fastapi import APIRouter, Depends, Form, HTTPException, status, File, UploadFile, Request","children":[],"payload":{"lines":"6,7"}},{"content":"from sqlalchemy.orm import Session","children":[],"payload":{"lines":"7,8"}},{"content":"<font color=\"red\">from app.schemas.image import ImageCreate, ImageResponse</font>","children":[],"payload":{"lines":"8,9"}},{"content":"<font color=\"red\">from app.models.image_parameter import ImageParameter</font>","children":[],"payload":{"lines":"9,10"}},{"content":"from fastapi.staticfiles import StaticFiles","children":[],"payload":{"lines":"10,11"}},{"content":"import shutil","children":[],"payload":{"lines":"11,12"}},{"content":"import os","children":[],"payload":{"lines":"12,13"}},{"content":"<font color=\"red\">from app.db.session import get_db</font>","children":[],"payload":{"lines":"13,14"}}],"payload":{"lines":"4,5"}},{"content":"Functions:","children":[{"content":"<strong>Function:</strong> <code>get_db</code> (line 17)<pre><code class=\"language-python\">    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_db</span>():\n      <span class=\"hljs-keyword\">pass</span>\n\n</code></pre>","children":[],"payload":{"lines":"15,21"}}],"payload":{"lines":"14,15"}},{"content":"Variables/Constants:","children":[{"content":"<pre><code class=\"language-python\">router = APIRouter()\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">UPLOAD_DIR = <span class=\"hljs-string\">\"uploads/\"</span>\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">images = db.query(ImageParameter).<span class=\"hljs-built_in\">all</span>()\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">image_responses = []\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">image = db.query(ImageParameter).<span class=\"hljs-built_in\">filter</span>(ImageParameter.<span class=\"hljs-built_in\">id</span> == image_id).first()\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">file_path = save_file(file, UPLOAD_DIR)\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">image = ImageParameter(\n          file_name=file.filename,\n          file_path=file_path,\n          sref_number=sref_number,\n          sref_description=sref_description,\n          twitter_id=twitter_id\n      )\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">file_url = <span class=\"hljs-string\">f\"<span class=\"hljs-subst\">{UPLOAD_DIR}</span><span class=\"hljs-subst\">{file.filename}</span>\"</span>\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">file_url = <span class=\"hljs-string\">f\"<span class=\"hljs-subst\">{UPLOAD_DIR}</span><span class=\"hljs-subst\">{image.file_name}</span>\"</span>\n</code></pre>","children":[]}],"payload":{"lines":"21,22"}}],"payload":{"lines":"2,3"}}],"payload":{"lines":"0,1"}},null)</script>
+</body>
+</html>

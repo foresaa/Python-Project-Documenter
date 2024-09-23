@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/index.js"></script><script>((r) => {
+            setTimeout(r);
+          })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"Directory: <code>C:/MJ6_SREF/app/schemas</code>","children":[{"content":"File: <code>image.py</code>","children":[{"content":"Imports:","children":[{"content":"from pydantic import BaseModel","children":[],"payload":{"lines":"5,6"}},{"content":"from sqlalchemy import Column, Integer, String","children":[],"payload":{"lines":"6,7"}},{"content":"<font color=\"red\">from app.db.base import Base</font>","children":[],"payload":{"lines":"7,8"}}],"payload":{"lines":"4,5"}},{"content":"Classes:","children":[{"content":"<strong>Class:</strong> <code>ImageCreate</code> (line 5)<pre><code class=\"language-python\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">ImageCreate</span>(<span class=\"hljs-title class_ inherited__\">BaseModel</span>):\n  parameter: <span class=\"hljs-built_in\">str</span>\n  description: <span class=\"hljs-built_in\">str</span>\n  x_id: <span class=\"hljs-built_in\">str</span>\n\n</code></pre>","children":[],"payload":{"lines":"9,17"}},{"content":"<strong>Class:</strong> <code>ImageResponse</code> (line 10)<pre><code class=\"language-python\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">ImageResponse</span>(<span class=\"hljs-title class_ inherited__\">BaseModel</span>):\n  <span class=\"hljs-built_in\">id</span>: <span class=\"hljs-built_in\">int</span>\n  parameter: <span class=\"hljs-built_in\">str</span>\n  description: <span class=\"hljs-built_in\">str</span>\n  x_id: <span class=\"hljs-built_in\">str</span>\n  file_url: <span class=\"hljs-built_in\">str</span>\n\n  <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Config</span>:\n      orm_mode = <span class=\"hljs-literal\">True</span>\n\n</code></pre>","children":[],"payload":{"lines":"17,30"}},{"content":"<strong>Class:</strong> <code>Config</code> (line 17)<pre><code class=\"language-python\">    <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Config</span>:\n      orm_mode = <span class=\"hljs-literal\">True</span>\n\n</code></pre>","children":[],"payload":{"lines":"30,36"}}],"payload":{"lines":"8,9"}},{"content":"Variables/Constants:","children":[{"content":"<pre><code class=\"language-python\">orm_mode = <span class=\"hljs-literal\">True</span>\n</code></pre>","children":[]}],"payload":{"lines":"36,37"}}],"payload":{"lines":"2,3"}},{"content":"File: <code>image_parameter.py</code>","children":[{"content":"Imports:","children":[{"content":"from pydantic import BaseModel","children":[],"payload":{"lines":"43,44"}}],"payload":{"lines":"42,43"}},{"content":"Classes:","children":[{"content":"<strong>Class:</strong> <code>ImageParameterBase</code> (line 3)<pre><code class=\"language-python\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">ImageParameterBase</span>(<span class=\"hljs-title class_ inherited__\">BaseModel</span>):\n  file_name: <span class=\"hljs-built_in\">str</span>\n  sref_number: <span class=\"hljs-built_in\">int</span>\n  sref_description: <span class=\"hljs-built_in\">str</span>\n  twitter_id: <span class=\"hljs-built_in\">str</span>\n\n</code></pre>","children":[],"payload":{"lines":"45,54"}},{"content":"<strong>Class:</strong> <code>ImageParameterCreate</code> (line 9)<pre><code class=\"language-python\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">ImageParameterCreate</span>(<span class=\"hljs-title class_ inherited__\">ImageParameterBase</span>):\n  <span class=\"hljs-keyword\">pass</span>\n\n</code></pre>","children":[],"payload":{"lines":"54,60"}},{"content":"<strong>Class:</strong> <code>ImageParameterResponse</code> (line 12)<pre><code class=\"language-python\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">ImageParameterResponse</span>(<span class=\"hljs-title class_ inherited__\">ImageParameterBase</span>):\n  <span class=\"hljs-built_in\">id</span>: <span class=\"hljs-built_in\">int</span>\n\n  <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Config</span>:\n      orm_mode = <span class=\"hljs-literal\">True</span>\n\n</code></pre>","children":[],"payload":{"lines":"60,69"}},{"content":"<strong>Class:</strong> <code>Config</code> (line 15)<pre><code class=\"language-python\">    <span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Config</span>:\n      orm_mode = <span class=\"hljs-literal\">True</span>\n\n</code></pre>","children":[],"payload":{"lines":"69,75"}}],"payload":{"lines":"44,45"}},{"content":"Variables/Constants:","children":[{"content":"<pre><code class=\"language-python\">orm_mode = <span class=\"hljs-literal\">True</span>\n</code></pre>","children":[]}],"payload":{"lines":"75,76"}}],"payload":{"lines":"40,41"}},{"content":"File: <code>user.py</code>","children":[{"content":"Imports:","children":[{"content":"from pydantic import BaseModel","children":[],"payload":{"lines":"82,83"}},{"content":"from pydantic import BaseModel","children":[],"payload":{"lines":"83,84"}}],"payload":{"lines":"81,82"}},{"content":"Classes:","children":[{"content":"<strong>Class:</strong> <code>User</code> (line 3)<pre><code class=\"language-python\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">User</span>(<span class=\"hljs-title class_ inherited__\">BaseModel</span>):\n  email: <span class=\"hljs-built_in\">str</span>\n  password: <span class=\"hljs-built_in\">str</span>\n\n</code></pre>","children":[],"payload":{"lines":"85,92"}},{"content":"<strong>Class:</strong> <code>UserCreate</code> (line 7)<pre><code class=\"language-python\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">UserCreate</span>(<span class=\"hljs-title class_ inherited__\">User</span>):\n  <span class=\"hljs-keyword\">pass</span>\n\n</code></pre>","children":[],"payload":{"lines":"92,98"}}],"payload":{"lines":"84,85"}}],"payload":{"lines":"79,80"}}],"payload":{"lines":"0,1"}},null)</script>
+</body>
+</html>

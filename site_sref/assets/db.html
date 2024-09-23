@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/index.js"></script><script>((r) => {
+            setTimeout(r);
+          })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"Directory: <code>C:/MJ6_SREF/app/db</code>","children":[{"content":"File: <code>base.py</code>","children":[{"content":"Imports:","children":[{"content":"from sqlalchemy.ext.declarative import declarative_base","children":[],"payload":{"lines":"6,8"}}],"payload":{"lines":"4,5"}},{"content":"Variables/Constants:","children":[{"content":"<pre><code class=\"language-python\">Base = declarative_base()\n</code></pre>","children":[]}],"payload":{"lines":"8,9"}}],"payload":{"lines":"2,3"}},{"content":"File: <code>session.py</code>","children":[{"content":"Imports:","children":[{"content":"from sqlalchemy import create_engine","children":[],"payload":{"lines":"18,19"}},{"content":"from sqlalchemy.orm import sessionmaker","children":[],"payload":{"lines":"19,20"}},{"content":"import os","children":[],"payload":{"lines":"20,22"}}],"payload":{"lines":"16,17"}},{"content":"Functions:","children":[{"content":"\n<p data-lines=\"24,25\"><strong>Function:</strong> <code>get_db</code> (line 11)</p>\n<pre><code class=\"language-python\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_db</span>():\n  db = SessionLocal()\n  <span class=\"hljs-keyword\">try</span>:\n      <span class=\"hljs-keyword\">yield</span> db\n  <span class=\"hljs-keyword\">finally</span>:\n      db.close()\n\n</code></pre>","children":[],"payload":{"lines":"24,36"}}],"payload":{"lines":"22,23"}},{"content":"Variables/Constants:","children":[{"content":"<pre><code class=\"language-python\">DATABASE_URL = os.getenv(<span class=\"hljs-string\">\"DATABASE_URL\"</span>, <span class=\"hljs-string\">\"sqlite:///./test.db\"</span>)\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">engine = create_engine(DATABASE_URL)\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">SessionLocal = sessionmaker(autocommit=<span class=\"hljs-literal\">False</span>, autoflush=<span class=\"hljs-literal\">False</span>, bind=engine)\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">db = SessionLocal()\n</code></pre>","children":[]}],"payload":{"lines":"36,37"}}],"payload":{"lines":"14,15"}}],"payload":{"lines":"0,1"}},null)</script>
+</body>
+</html>

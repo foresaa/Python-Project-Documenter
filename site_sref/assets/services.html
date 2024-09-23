@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/index.js"></script><script>((r) => {
+            setTimeout(r);
+          })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"Directory: <code>C:/MJ6_SREF/app/services</code>","children":[{"content":"File: <code>image_service.py</code>","children":[{"content":"Imports:","children":[{"content":"import os","children":[],"payload":{"lines":"5,6"}},{"content":"from fastapi import UploadFile","children":[],"payload":{"lines":"6,7"}},{"content":"from pathlib import Path","children":[],"payload":{"lines":"7,8"}}],"payload":{"lines":"4,5"}},{"content":"Functions:","children":[{"content":"<strong>Function:</strong> <code>upload_image</code> (line 3)<pre><code class=\"language-python\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">upload_image</span>(<span class=\"hljs-params\">image_data, file, db, user</span>):\n  <span class=\"hljs-comment\"># Logic for image upload</span>\n  <span class=\"hljs-keyword\">return</span> {<span class=\"hljs-string\">\"message\"</span>: <span class=\"hljs-string\">\"Image uploaded successfully\"</span>}\n\n</code></pre>","children":[],"payload":{"lines":"9,16"}},{"content":"<strong>Function:</strong> <code>save_file</code> (line 15)<pre><code class=\"language-python\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">save_file</span>(<span class=\"hljs-params\">file: UploadFile, destination_dir: <span class=\"hljs-built_in\">str</span> = UPLOAD_DIRECTORY</span>) -&gt; <span class=\"hljs-built_in\">str</span>:\n  <span class=\"hljs-comment\"># Ensure the upload directory exists</span>\n  Path(destination_dir).mkdir(parents=<span class=\"hljs-literal\">True</span>, exist_ok=<span class=\"hljs-literal\">True</span>)\n\n  file_path = os.path.join(destination_dir, file.filename)\n  \n  <span class=\"hljs-comment\"># Write the file to the specified directory</span>\n  <span class=\"hljs-keyword\">with</span> <span class=\"hljs-built_in\">open</span>(file_path, <span class=\"hljs-string\">\"wb\"</span>) <span class=\"hljs-keyword\">as</span> buffer:\n      buffer.write(file.file.read())\n  \n  <span class=\"hljs-keyword\">return</span> file_path  <span class=\"hljs-comment\"># Return the full path of the saved file</span>\n\n</code></pre>","children":[],"payload":{"lines":"16,31"}}],"payload":{"lines":"8,9"}},{"content":"Variables/Constants:","children":[{"content":"<pre><code class=\"language-python\">UPLOAD_DIRECTORY = <span class=\"hljs-string\">\"uploads/\"</span>\n</code></pre>","children":[]},{"content":"<pre><code class=\"language-python\">file_path = os.path.join(destination_dir, file.filename)\n</code></pre>","children":[]}],"payload":{"lines":"31,32"}}],"payload":{"lines":"2,3"}},{"content":"File: <code>user_service.py</code>","children":[{"content":"Functions:","children":[{"content":"<strong>Function:</strong> <code>get_current_user</code> (line 3)<pre><code class=\"language-python\"><span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">get_current_user</span>():\n  <span class=\"hljs-comment\"># Example function for user authentication</span>\n  <span class=\"hljs-keyword\">return</span> {<span class=\"hljs-string\">\"email\"</span>: <span class=\"hljs-string\">\"test@example.com\"</span>}\n</code></pre>","children":[],"payload":{"lines":"41,47"}}],"payload":{"lines":"40,41"}}],"payload":{"lines":"38,39"}}],"payload":{"lines":"0,1"}},null)</script>
+</body>
+</html>
